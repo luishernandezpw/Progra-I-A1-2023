@@ -12,6 +12,7 @@ namespace ejercicios
 {
     public partial class Form1 : Form
     {
+        Conversores objConversor = new Conversores();
         public Form1()
         {
             InitializeComponent();
@@ -19,19 +20,20 @@ namespace ejercicios
 
         private void btnConvertirConversores_Click(object sender, EventArgs e)
         {
-            int de = 0, a = 0;
-            double cantidad = 0, respuesta = 0;
-
-            de = cboDeConversores.SelectedIndex;
-            a = cboAConversores.SelectedIndex;
-
-            cantidad = double.Parse(txtCantidadConversores.Text);
-            //Dolar, Euro, Quetzalez,Lempiras, Colon SV, Cordoba,Colon CR,Yen,Libras esterlina, Rupia India
- 
-            double[] monedas = {1, 0.92, 7.86, 24.66, 8.75, 36.58, 535.14, 145.47, 0.79, 83.29};
-            respuesta = monedas[a] / monedas[de] * cantidad;
-
+            int de = cboDeConversores.SelectedIndex, a = cboAConversores.SelectedIndex ;
+            double cantidad = double.Parse(txtCantidadConversores.Text), 
+                respuesta = objConversor.convertir(cboTipoConversor.SelectedIndex, de, a, cantidad);
+            
             lblRespuestaConversores.Text = "Respuesta: " + Math.Round(respuesta,3);
+        }
+
+        private void cboTipoConversor_TextChanged(object sender, EventArgs e)
+        {
+            cboDeConversores.Items.Clear();
+            cboAConversores.Items.Clear();
+
+            cboDeConversores.Items.AddRange(objConversor.etiquetas[cboTipoConversor.SelectedIndex]);
+            cboAConversores.Items.AddRange(objConversor.etiquetas[cboTipoConversor.SelectedIndex]);
         }
     }
 }
