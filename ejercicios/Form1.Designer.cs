@@ -30,22 +30,22 @@ namespace ejercicios
         private void InitializeComponent()
         {
             this.grbDatosMateria = new System.Windows.Forms.GroupBox();
-            this.grbNavegacionMateria = new System.Windows.Forms.GroupBox();
-            this.grbEdicionMateria = new System.Windows.Forms.GroupBox();
-            this.lblCodigoMateria = new System.Windows.Forms.Label();
-            this.txtCodigoMateria = new System.Windows.Forms.TextBox();
-            this.btnPrimeroMateria = new System.Windows.Forms.Button();
-            this.txtNombreMateria = new System.Windows.Forms.TextBox();
-            this.lblNombreMateria = new System.Windows.Forms.Label();
             this.txtUvMateria = new System.Windows.Forms.TextBox();
             this.lblUvMateria = new System.Windows.Forms.Label();
-            this.btnAnteriorMateria = new System.Windows.Forms.Button();
+            this.txtNombreMateria = new System.Windows.Forms.TextBox();
+            this.lblNombreMateria = new System.Windows.Forms.Label();
+            this.txtCodigoMateria = new System.Windows.Forms.TextBox();
+            this.lblCodigoMateria = new System.Windows.Forms.Label();
+            this.grbNavegacionMateria = new System.Windows.Forms.GroupBox();
+            this.lblnRegistroMateria = new System.Windows.Forms.Label();
             this.btnUltimoMateria = new System.Windows.Forms.Button();
             this.btnSiguienteMateria = new System.Windows.Forms.Button();
-            this.lblnRegistroMateria = new System.Windows.Forms.Label();
-            this.btnNuevoMateria = new System.Windows.Forms.Button();
-            this.btnModificarMateria = new System.Windows.Forms.Button();
+            this.btnAnteriorMateria = new System.Windows.Forms.Button();
+            this.btnPrimeroMateria = new System.Windows.Forms.Button();
+            this.grbEdicionMateria = new System.Windows.Forms.GroupBox();
             this.btnEliminarMateria = new System.Windows.Forms.Button();
+            this.btnModificarMateria = new System.Windows.Forms.Button();
+            this.btnNuevoMateria = new System.Windows.Forms.Button();
             this.grdDatosMaterias = new System.Windows.Forms.DataGridView();
             this.idMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,59 +74,22 @@ namespace ejercicios
             this.grbDatosMateria.TabStop = false;
             this.grbDatosMateria.Text = "Datos Materia";
             // 
-            // grbNavegacionMateria
+            // txtUvMateria
             // 
-            this.grbNavegacionMateria.Controls.Add(this.lblnRegistroMateria);
-            this.grbNavegacionMateria.Controls.Add(this.btnUltimoMateria);
-            this.grbNavegacionMateria.Controls.Add(this.btnSiguienteMateria);
-            this.grbNavegacionMateria.Controls.Add(this.btnAnteriorMateria);
-            this.grbNavegacionMateria.Controls.Add(this.btnPrimeroMateria);
-            this.grbNavegacionMateria.Location = new System.Drawing.Point(12, 259);
-            this.grbNavegacionMateria.Name = "grbNavegacionMateria";
-            this.grbNavegacionMateria.Size = new System.Drawing.Size(224, 91);
-            this.grbNavegacionMateria.TabIndex = 1;
-            this.grbNavegacionMateria.TabStop = false;
-            this.grbNavegacionMateria.Text = "Navegacion";
+            this.txtUvMateria.Location = new System.Drawing.Point(88, 123);
+            this.txtUvMateria.Name = "txtUvMateria";
+            this.txtUvMateria.ReadOnly = true;
+            this.txtUvMateria.Size = new System.Drawing.Size(63, 20);
+            this.txtUvMateria.TabIndex = 5;
             // 
-            // grbEdicionMateria
+            // lblUvMateria
             // 
-            this.grbEdicionMateria.Controls.Add(this.btnEliminarMateria);
-            this.grbEdicionMateria.Controls.Add(this.btnModificarMateria);
-            this.grbEdicionMateria.Controls.Add(this.btnNuevoMateria);
-            this.grbEdicionMateria.Location = new System.Drawing.Point(242, 259);
-            this.grbEdicionMateria.Name = "grbEdicionMateria";
-            this.grbEdicionMateria.Size = new System.Drawing.Size(281, 91);
-            this.grbEdicionMateria.TabIndex = 2;
-            this.grbEdicionMateria.TabStop = false;
-            this.grbEdicionMateria.Text = "Edicion";
-            // 
-            // lblCodigoMateria
-            // 
-            this.lblCodigoMateria.AutoSize = true;
-            this.lblCodigoMateria.Location = new System.Drawing.Point(30, 40);
-            this.lblCodigoMateria.Name = "lblCodigoMateria";
-            this.lblCodigoMateria.Size = new System.Drawing.Size(52, 13);
-            this.lblCodigoMateria.TabIndex = 0;
-            this.lblCodigoMateria.Text = "CODIGO:";
-            // 
-            // txtCodigoMateria
-            // 
-            this.txtCodigoMateria.Location = new System.Drawing.Point(88, 33);
-            this.txtCodigoMateria.Name = "txtCodigoMateria";
-            this.txtCodigoMateria.ReadOnly = true;
-            this.txtCodigoMateria.Size = new System.Drawing.Size(142, 20);
-            this.txtCodigoMateria.TabIndex = 1;
-            // 
-            // btnPrimeroMateria
-            // 
-            this.btnPrimeroMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrimeroMateria.Location = new System.Drawing.Point(5, 33);
-            this.btnPrimeroMateria.Name = "btnPrimeroMateria";
-            this.btnPrimeroMateria.Size = new System.Drawing.Size(33, 38);
-            this.btnPrimeroMateria.TabIndex = 0;
-            this.btnPrimeroMateria.Text = "|<";
-            this.btnPrimeroMateria.UseVisualStyleBackColor = true;
-            this.btnPrimeroMateria.Click += new System.EventHandler(this.btnPrimeroMateria_Click);
+            this.lblUvMateria.AutoSize = true;
+            this.lblUvMateria.Location = new System.Drawing.Point(57, 130);
+            this.lblUvMateria.Name = "lblUvMateria";
+            this.lblUvMateria.Size = new System.Drawing.Size(25, 13);
+            this.lblUvMateria.TabIndex = 4;
+            this.lblUvMateria.Text = "UV:";
             // 
             // txtNombreMateria
             // 
@@ -145,33 +108,45 @@ namespace ejercicios
             this.lblNombreMateria.TabIndex = 2;
             this.lblNombreMateria.Text = "MATERIA:";
             // 
-            // txtUvMateria
+            // txtCodigoMateria
             // 
-            this.txtUvMateria.Location = new System.Drawing.Point(88, 123);
-            this.txtUvMateria.Name = "txtUvMateria";
-            this.txtUvMateria.ReadOnly = true;
-            this.txtUvMateria.Size = new System.Drawing.Size(63, 20);
-            this.txtUvMateria.TabIndex = 5;
+            this.txtCodigoMateria.Location = new System.Drawing.Point(88, 33);
+            this.txtCodigoMateria.Name = "txtCodigoMateria";
+            this.txtCodigoMateria.ReadOnly = true;
+            this.txtCodigoMateria.Size = new System.Drawing.Size(142, 20);
+            this.txtCodigoMateria.TabIndex = 1;
             // 
-            // lblUvMateria
+            // lblCodigoMateria
             // 
-            this.lblUvMateria.AutoSize = true;
-            this.lblUvMateria.Location = new System.Drawing.Point(57, 130);
-            this.lblUvMateria.Name = "lblUvMateria";
-            this.lblUvMateria.Size = new System.Drawing.Size(25, 13);
-            this.lblUvMateria.TabIndex = 4;
-            this.lblUvMateria.Text = "UV:";
+            this.lblCodigoMateria.AutoSize = true;
+            this.lblCodigoMateria.Location = new System.Drawing.Point(30, 40);
+            this.lblCodigoMateria.Name = "lblCodigoMateria";
+            this.lblCodigoMateria.Size = new System.Drawing.Size(52, 13);
+            this.lblCodigoMateria.TabIndex = 0;
+            this.lblCodigoMateria.Text = "CODIGO:";
             // 
-            // btnAnteriorMateria
+            // grbNavegacionMateria
             // 
-            this.btnAnteriorMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnteriorMateria.Location = new System.Drawing.Point(36, 33);
-            this.btnAnteriorMateria.Name = "btnAnteriorMateria";
-            this.btnAnteriorMateria.Size = new System.Drawing.Size(33, 38);
-            this.btnAnteriorMateria.TabIndex = 1;
-            this.btnAnteriorMateria.Text = "<";
-            this.btnAnteriorMateria.UseVisualStyleBackColor = true;
-            this.btnAnteriorMateria.Click += new System.EventHandler(this.btnAnteriorMateria_Click);
+            this.grbNavegacionMateria.Controls.Add(this.lblnRegistroMateria);
+            this.grbNavegacionMateria.Controls.Add(this.btnUltimoMateria);
+            this.grbNavegacionMateria.Controls.Add(this.btnSiguienteMateria);
+            this.grbNavegacionMateria.Controls.Add(this.btnAnteriorMateria);
+            this.grbNavegacionMateria.Controls.Add(this.btnPrimeroMateria);
+            this.grbNavegacionMateria.Location = new System.Drawing.Point(12, 259);
+            this.grbNavegacionMateria.Name = "grbNavegacionMateria";
+            this.grbNavegacionMateria.Size = new System.Drawing.Size(224, 91);
+            this.grbNavegacionMateria.TabIndex = 1;
+            this.grbNavegacionMateria.TabStop = false;
+            this.grbNavegacionMateria.Text = "Navegacion";
+            // 
+            // lblnRegistroMateria
+            // 
+            this.lblnRegistroMateria.AutoSize = true;
+            this.lblnRegistroMateria.Location = new System.Drawing.Point(75, 47);
+            this.lblnRegistroMateria.Name = "lblnRegistroMateria";
+            this.lblnRegistroMateria.Size = new System.Drawing.Size(36, 13);
+            this.lblnRegistroMateria.TabIndex = 6;
+            this.lblnRegistroMateria.Text = "x de n";
             // 
             // btnUltimoMateria
             // 
@@ -195,45 +170,72 @@ namespace ejercicios
             this.btnSiguienteMateria.UseVisualStyleBackColor = true;
             this.btnSiguienteMateria.Click += new System.EventHandler(this.btnSiguienteMateria_Click);
             // 
-            // lblnRegistroMateria
+            // btnAnteriorMateria
             // 
-            this.lblnRegistroMateria.AutoSize = true;
-            this.lblnRegistroMateria.Location = new System.Drawing.Point(75, 47);
-            this.lblnRegistroMateria.Name = "lblnRegistroMateria";
-            this.lblnRegistroMateria.Size = new System.Drawing.Size(36, 13);
-            this.lblnRegistroMateria.TabIndex = 6;
-            this.lblnRegistroMateria.Text = "x de n";
+            this.btnAnteriorMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnteriorMateria.Location = new System.Drawing.Point(36, 33);
+            this.btnAnteriorMateria.Name = "btnAnteriorMateria";
+            this.btnAnteriorMateria.Size = new System.Drawing.Size(33, 38);
+            this.btnAnteriorMateria.TabIndex = 1;
+            this.btnAnteriorMateria.Text = "<";
+            this.btnAnteriorMateria.UseVisualStyleBackColor = true;
+            this.btnAnteriorMateria.Click += new System.EventHandler(this.btnAnteriorMateria_Click);
+            // 
+            // btnPrimeroMateria
+            // 
+            this.btnPrimeroMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrimeroMateria.Location = new System.Drawing.Point(5, 33);
+            this.btnPrimeroMateria.Name = "btnPrimeroMateria";
+            this.btnPrimeroMateria.Size = new System.Drawing.Size(33, 38);
+            this.btnPrimeroMateria.TabIndex = 0;
+            this.btnPrimeroMateria.Text = "|<";
+            this.btnPrimeroMateria.UseVisualStyleBackColor = true;
+            this.btnPrimeroMateria.Click += new System.EventHandler(this.btnPrimeroMateria_Click);
+            // 
+            // grbEdicionMateria
+            // 
+            this.grbEdicionMateria.Controls.Add(this.btnEliminarMateria);
+            this.grbEdicionMateria.Controls.Add(this.btnModificarMateria);
+            this.grbEdicionMateria.Controls.Add(this.btnNuevoMateria);
+            this.grbEdicionMateria.Location = new System.Drawing.Point(242, 259);
+            this.grbEdicionMateria.Name = "grbEdicionMateria";
+            this.grbEdicionMateria.Size = new System.Drawing.Size(281, 91);
+            this.grbEdicionMateria.TabIndex = 2;
+            this.grbEdicionMateria.TabStop = false;
+            this.grbEdicionMateria.Text = "Edicion";
+            // 
+            // btnEliminarMateria
+            // 
+            this.btnEliminarMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarMateria.ForeColor = System.Drawing.Color.Red;
+            this.btnEliminarMateria.Location = new System.Drawing.Point(192, 33);
+            this.btnEliminarMateria.Name = "btnEliminarMateria";
+            this.btnEliminarMateria.Size = new System.Drawing.Size(85, 38);
+            this.btnEliminarMateria.TabIndex = 9;
+            this.btnEliminarMateria.Text = "Eliminar";
+            this.btnEliminarMateria.UseVisualStyleBackColor = true;
+            // 
+            // btnModificarMateria
+            // 
+            this.btnModificarMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarMateria.Location = new System.Drawing.Point(88, 33);
+            this.btnModificarMateria.Name = "btnModificarMateria";
+            this.btnModificarMateria.Size = new System.Drawing.Size(95, 38);
+            this.btnModificarMateria.TabIndex = 8;
+            this.btnModificarMateria.Text = "Modificar";
+            this.btnModificarMateria.UseVisualStyleBackColor = true;
+            this.btnModificarMateria.Click += new System.EventHandler(this.btnModificarMateria_Click);
             // 
             // btnNuevoMateria
             // 
             this.btnNuevoMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoMateria.Location = new System.Drawing.Point(6, 33);
             this.btnNuevoMateria.Name = "btnNuevoMateria";
-            this.btnNuevoMateria.Size = new System.Drawing.Size(70, 38);
+            this.btnNuevoMateria.Size = new System.Drawing.Size(83, 38);
             this.btnNuevoMateria.TabIndex = 7;
             this.btnNuevoMateria.Text = "Nuevo";
             this.btnNuevoMateria.UseVisualStyleBackColor = true;
-            // 
-            // btnModificarMateria
-            // 
-            this.btnModificarMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarMateria.Location = new System.Drawing.Point(76, 33);
-            this.btnModificarMateria.Name = "btnModificarMateria";
-            this.btnModificarMateria.Size = new System.Drawing.Size(95, 38);
-            this.btnModificarMateria.TabIndex = 8;
-            this.btnModificarMateria.Text = "Modificar";
-            this.btnModificarMateria.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminarMateria
-            // 
-            this.btnEliminarMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarMateria.ForeColor = System.Drawing.Color.Red;
-            this.btnEliminarMateria.Location = new System.Drawing.Point(187, 33);
-            this.btnEliminarMateria.Name = "btnEliminarMateria";
-            this.btnEliminarMateria.Size = new System.Drawing.Size(85, 38);
-            this.btnEliminarMateria.TabIndex = 9;
-            this.btnEliminarMateria.Text = "Eliminar";
-            this.btnEliminarMateria.UseVisualStyleBackColor = true;
+            this.btnNuevoMateria.Click += new System.EventHandler(this.btnNuevoMateria_Click);
             // 
             // grdDatosMaterias
             // 

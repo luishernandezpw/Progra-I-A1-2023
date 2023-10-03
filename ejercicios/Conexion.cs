@@ -36,5 +36,30 @@ namespace ejercicios
 
             return miDs;
         }
+        public String mantenimientoMaterias(String[] materias)
+        {
+            String sql = "";
+            if (materias[0] == "nuevo"){
+                sql = "INSERT INTO materias (codigo, materia, uv) VALUES('"+materias[1]+ "', '" + materias[2] + "', '" + 
+                    materias[3] + "')";
+            } else if (materias[0] == "modificar"){
+                sql = "UPDATE materias SET codigo='" + materias[1] + "', materia='" + materias[2] + "', uv='" + materias[3] + 
+                    "' WHERE idMateria='" + materias[4] + "'";
+            } else if (materias[0] == "eliminar"){
+                sql = "DELETE FROM materias WHERE idMateria='" + materias[4] + "'";
+            }
+            return ejecutarSql(sql);
+        }
+        private string ejecutarSql(String sql)
+        {
+            try
+            {
+                miComando.CommandText = sql;
+                miComando.Connection = miConexion;
+                return miComando.ExecuteNonQuery().ToString();
+            }catch(Exception e){
+                return e.Message;
+            }
+        }
     }
 }
