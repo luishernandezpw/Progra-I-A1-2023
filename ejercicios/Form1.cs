@@ -14,6 +14,7 @@ namespace ejercicios
     {
         Conexion objConexion = new Conexion();
         DataSet miDs = new DataSet();
+        DataTable miTabla = new DataTable();
         public int posicion =0;
         String accion = "nuevo";
         public Form1()
@@ -24,30 +25,46 @@ namespace ejercicios
         private void Form1_Load(object sender, EventArgs e)
         {
             actualizarDsMaterias();
+            cboOpcionBuscarMaterias.SelectedIndex = 1;
         }
         private void actualizarDsMaterias()
         {
             miDs.Clear();
             miDs = objConexion.obtenerDatos();
+            miTabla = miDs.Tables["materias"];
+            miTabla.PrimaryKey = new DataColumn[] {miTabla.Columns["idMateria"]};
             mostrarMaterias();
             mostrarDatosMateria();
         }
         private void mostrarMaterias()
         {
-            grdDatosMaterias.DataSource = miDs.Tables["materias"].DefaultView;
+            
+            grdDatosMaterias.DataSource = miTabla.DefaultView;
+        }
+        private void filtrarMaterias(String valor, int opcion)
+        {
+            try {
+                BindingSource bs = new BindingSource();
+                bs.DataSource = grdDatosMaterias.DataSource;
+                bs.Filter = opcion==0 ? "codigo=" + valor : "materia like '%" + valor + "%'";
+                grdDatosMaterias.DataSource = bs;
+                erpMaterias.SetError(txtBuscarMaterias, "");
+            }catch(Exception e){
+                erpMaterias.SetError(txtBuscarMaterias, "Por favor ingrese un codigo o materia a buscr");
+            }
         }
         private void mostrarDatosMateria()
         {
-            txtCodigoMateria.Text = miDs.Tables["materias"].Rows[posicion].ItemArray[1].ToString();
-            txtNombreMateria.Text = miDs.Tables["materias"].Rows[posicion].ItemArray[2].ToString();
-            txtUvMateria.Text = miDs.Tables["materias"].Rows[posicion].ItemArray[3].ToString();
+            txtCodigoMateria.Text = miTabla.Rows[posicion].ItemArray[1].ToString();
+            txtNombreMateria.Text = miTabla.Rows[posicion].ItemArray[2].ToString();
+            txtUvMateria.Text = miTabla.Rows[posicion].ItemArray[3].ToString();
 
-            lblnRegistroMateria.Text = (posicion + 1) + " de " + miDs.Tables["materias"].Rows.Count;
+            lblnRegistroMateria.Text = (posicion + 1) + " de " + miTabla.Rows.Count;
         }
 
         private void btnSiguienteMateria_Click(object sender, EventArgs e)
         {
-            if (posicion < miDs.Tables["materias"].Rows.Count-1){
+            if (posicion < miTabla.Rows.Count-1){
                 posicion++;
                 mostrarDatosMateria();
             } else{
@@ -57,7 +74,7 @@ namespace ejercicios
 
         private void btnUltimoMateria_Click(object sender, EventArgs e)
         {
-            posicion = miDs.Tables["materias"].Rows.Count - 1;
+            posicion = miTabla.Rows.Count - 1;
             mostrarDatosMateria();
         }
 
@@ -88,14 +105,17 @@ namespace ejercicios
             }else {//Guardar
                 String[] materias = new string[] {
                     accion,txtCodigoMateria.Text, txtNombreMateria.Text, txtUvMateria.Text,
-                    miDs.Tables["materias"].Rows[posicion].ItemArray[0].ToString()
+                    miTabla.Rows[posicion].ItemArray[0].ToString()
                 };
                 String msg = objConexion.mantenimientoMaterias(materias);
-                MessageBox.Show(msg);
-                actualizarDsMaterias();
-                estadoControles(true);
-                btnNuevoMateria.Text = "Nuevo";
-                btnModificarMateria.Text = "Modificar";
+                if( msg!="1"){
+                    MessageBox.Show("Error en el registro de materias: " + msg, "Registro de Materias.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }else{
+                    actualizarDsMaterias();
+                    estadoControles(true);
+                    btnNuevoMateria.Text = "Nuevo";
+                    btnModificarMateria.Text = "Modificar";
+                }
             }
         }
 
@@ -129,6 +149,42 @@ namespace ejercicios
             txtCodigoMateria.Text = "";
             txtNombreMateria.Text = "";
             txtUvMateria.Text = "";
+        }
+
+        private void txtBuscarMaterias_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtrarMaterias(txtBuscarMaterias.Text, cboOpcionBuscarMaterias.SelectedIndex);
+            if (e.KeyValue == 13) {//tecla enter
+                seleccionarMateria();
+            }
+        }
+        private void seleccionarMateria()
+        {
+            posicion = miTabla.Rows.IndexOf(miTabla.Rows.Find(grdDatosMaterias.CurrentRow.Cells["idMateria"].Value.ToString()));
+            mostrarDatosMateria();
+        }
+
+        private void grdDatosMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            seleccionarMateria();
+        }
+
+        private void btnEliminarMateria_Click(object sender, EventArgs e)
+        {
+            if( MessageBox.Show("Esta seguro de eliminar a "+ txtNombreMateria.Text, "Eliminado Materias", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+            {
+                String[] materias = new string[] {
+                    "eliminar",txtCodigoMateria.Text, txtNombreMateria.Text, txtUvMateria.Text,
+                    miTabla.Rows[posicion].ItemArray[0].ToString()
+                };
+                String msg = objConexion.mantenimientoMaterias(materias);
+                if (msg != "1"){
+                    MessageBox.Show("Error en la eliminacion de materias: " + msg, "Registro de Materias.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }else {
+                    actualizarDsMaterias();
+                }
+            }
         }
     }
 }
