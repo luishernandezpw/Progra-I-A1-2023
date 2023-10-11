@@ -50,6 +50,20 @@ namespace ejercicios
             }
             return ejecutarSql(sql);
         }
+        public String mantenimientoAlumnos(String[] alumnos)
+        {
+            String sql = "";
+            if (alumnos[0] == "nuevo") {
+                sql = "INSERT INTO alumnos (codigo, nombre, direccion, telefono) VALUES('" + alumnos[1] + "', '" + alumnos[2] + "', '" +
+                    alumnos[3] + "', '"+ alumnos[4] +"')";
+            }else if (alumnos[0] == "modificar"){
+                sql = "UPDATE alumnos SET codigo='" + alumnos[1] + "', nombre='" + alumnos[2] + "', direccion='" + alumnos[3] +
+                    "', telefono='"+alumnos[4]+"' WHERE idAlumno='" + alumnos[5] + "'";
+            }else if (alumnos[0] == "eliminar"){
+                sql = "DELETE FROM alumnos WHERE idAlumno='" + alumnos[5] + "'";
+            }
+            return ejecutarSql(sql);
+        }
         private string ejecutarSql(String sql)
         {
             try
