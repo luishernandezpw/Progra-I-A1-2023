@@ -4,7 +4,7 @@ Código de la clases, ejercicios y mas de Programación Computacional I
 # PROYETO FINAL DE CATEDRA.
 # Requerimientos (Minimos) del proyecto final.
 * Equipos de trabajo.
-* Base de Datos (Sql Server) debidamente Normalizada
+* Base de Datos (Sql Server u otro) debidamente Normalizada
 * 5 Formularios basicos
 * 3 Formularios Intermedios
 * 3 Formularios Avanzados
