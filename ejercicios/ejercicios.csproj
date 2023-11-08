@@ -68,11 +68,22 @@
       <DependentUpon>alumnos.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="db_academicoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_academicoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="materias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="materias.Designer.cs">
       <DependentUpon>materias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="matricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="matricula.Designer.cs">
+      <DependentUpon>matricula.cs</DependentUpon>
     </Compile>
     <Compile Include="principal.cs">
       <SubType>Form</SubType>
@@ -88,6 +99,9 @@
     <EmbeddedResource Include="materias.resx">
       <DependentUpon>materias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="matricula.resx">
+      <DependentUpon>matricula.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +114,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="db_academicoDataSet.xsc">
+      <DependentUpon>db_academicoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_academicoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_academicoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_academicoDataSet.xss">
+      <DependentUpon>db_academicoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

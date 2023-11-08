@@ -35,5 +35,12 @@ namespace ejercicios
             objalumnos.MdiParent = this;
             objalumnos.Show();
         }
+
+        private void matriculaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            matricula objMatricula = new matricula();
+            objMatricula.MdiParent = this;
+            objMatricula.Show();
+        }
     }
 }
