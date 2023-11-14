@@ -68,6 +68,9 @@
       <DependentUpon>alumnos.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="db_academicoDataSet.cs">
+      <DependentUpon>db_academicoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db_academicoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -2,7 +2,7 @@
 <xs:schema id="db_academicoDataSet" targetNamespace="http://tempuri.org/db_academicoDataSet.xsd" xmlns:mstns="http://tempuri.org/db_academicoDataSet.xsd" xmlns="http://tempuri.org/db_academicoDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="db_academicoConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="db_academicoConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ejercicios.Properties.Settings.GlobalReference.Default.db_academicoConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
@@ -574,6 +574,31 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtMatriculaAlumnosPeriodos" GeneratorDataComponentClassName="dtMatriculaAlumnosPeriodos" Name="matriculaAlumnosPeriodos" UserDataComponentName="dtMatriculaAlumnosPeriodos">
+            <MainSource>
+              <DbSource ConnectionRef="db_academicoConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        matricula.idMatricula, matricula.idAlumno, matricula.idPeriodo, matricula.fecha, alumnos.nombre, alumnos.codigo, periodos.periodo
+FROM            matricula INNER JOIN
+                         alumnos ON matricula.idAlumno = alumnos.idAlumno INNER JOIN
+                         periodos ON matricula.idPeriodo = periodos.idPeriodo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idMatricula" DataSetColumn="idMatricula" />
+              <Mapping SourceColumn="idAlumno" DataSetColumn="idAlumno" />
+              <Mapping SourceColumn="idPeriodo" DataSetColumn="idPeriodo" />
+              <Mapping SourceColumn="fecha" DataSetColumn="fecha" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="codigo" DataSetColumn="codigo" />
+              <Mapping SourceColumn="periodo" DataSetColumn="periodo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -582,7 +607,7 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
   <xs:element name="db_academicoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="db_academicoDataSet" msprop:Generator_UserDSName="db_academicoDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="alumnos" msprop:Generator_TableClassName="alumnosDataTable" msprop:Generator_TableVarName="tablealumnos" msprop:Generator_TablePropName="alumnos" msprop:Generator_RowDeletingName="alumnosRowDeleting" msprop:Generator_RowChangingName="alumnosRowChanging" msprop:Generator_RowEvHandlerName="alumnosRowChangeEventHandler" msprop:Generator_RowDeletedName="alumnosRowDeleted" msprop:Generator_UserTableName="alumnos" msprop:Generator_RowChangedName="alumnosRowChanged" msprop:Generator_RowEvArgName="alumnosRowChangeEvent" msprop:Generator_RowClassName="alumnosRow">
+        <xs:element name="alumnos" msprop:Generator_TableClassName="alumnosDataTable" msprop:Generator_TableVarName="tablealumnos" msprop:Generator_RowChangedName="alumnosRowChanged" msprop:Generator_TablePropName="alumnos" msprop:Generator_RowDeletingName="alumnosRowDeleting" msprop:Generator_RowChangingName="alumnosRowChanging" msprop:Generator_RowEvHandlerName="alumnosRowChangeEventHandler" msprop:Generator_RowDeletedName="alumnosRowDeleted" msprop:Generator_RowClassName="alumnosRow" msprop:Generator_UserTableName="alumnos" msprop:Generator_RowEvArgName="alumnosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idAlumno" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidAlumno" msprop:Generator_ColumnPropNameInRow="idAlumno" msprop:Generator_ColumnPropNameInTable="idAlumnoColumn" msprop:Generator_UserColumnName="idAlumno" type="xs:int" />
@@ -617,7 +642,7 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="detalle_inscripcion" msprop:Generator_TableClassName="detalle_inscripcionDataTable" msprop:Generator_TableVarName="tabledetalle_inscripcion" msprop:Generator_TablePropName="detalle_inscripcion" msprop:Generator_RowDeletingName="detalle_inscripcionRowDeleting" msprop:Generator_RowChangingName="detalle_inscripcionRowChanging" msprop:Generator_RowEvHandlerName="detalle_inscripcionRowChangeEventHandler" msprop:Generator_RowDeletedName="detalle_inscripcionRowDeleted" msprop:Generator_UserTableName="detalle_inscripcion" msprop:Generator_RowChangedName="detalle_inscripcionRowChanged" msprop:Generator_RowEvArgName="detalle_inscripcionRowChangeEvent" msprop:Generator_RowClassName="detalle_inscripcionRow">
+        <xs:element name="detalle_inscripcion" msprop:Generator_TableClassName="detalle_inscripcionDataTable" msprop:Generator_TableVarName="tabledetalle_inscripcion" msprop:Generator_RowChangedName="detalle_inscripcionRowChanged" msprop:Generator_TablePropName="detalle_inscripcion" msprop:Generator_RowDeletingName="detalle_inscripcionRowDeleting" msprop:Generator_RowChangingName="detalle_inscripcionRowChanging" msprop:Generator_RowEvHandlerName="detalle_inscripcionRowChangeEventHandler" msprop:Generator_RowDeletedName="detalle_inscripcionRowDeleted" msprop:Generator_RowClassName="detalle_inscripcionRow" msprop:Generator_UserTableName="detalle_inscripcion" msprop:Generator_RowEvArgName="detalle_inscripcionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idDetalle" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidDetalle" msprop:Generator_ColumnPropNameInRow="idDetalle" msprop:Generator_ColumnPropNameInTable="idDetalleColumn" msprop:Generator_UserColumnName="idDetalle" type="xs:int" />
@@ -626,7 +651,7 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="detalle_notas" msprop:Generator_TableClassName="detalle_notasDataTable" msprop:Generator_TableVarName="tabledetalle_notas" msprop:Generator_TablePropName="detalle_notas" msprop:Generator_RowDeletingName="detalle_notasRowDeleting" msprop:Generator_RowChangingName="detalle_notasRowChanging" msprop:Generator_RowEvHandlerName="detalle_notasRowChangeEventHandler" msprop:Generator_RowDeletedName="detalle_notasRowDeleted" msprop:Generator_UserTableName="detalle_notas" msprop:Generator_RowChangedName="detalle_notasRowChanged" msprop:Generator_RowEvArgName="detalle_notasRowChangeEvent" msprop:Generator_RowClassName="detalle_notasRow">
+        <xs:element name="detalle_notas" msprop:Generator_TableClassName="detalle_notasDataTable" msprop:Generator_TableVarName="tabledetalle_notas" msprop:Generator_RowChangedName="detalle_notasRowChanged" msprop:Generator_TablePropName="detalle_notas" msprop:Generator_RowDeletingName="detalle_notasRowDeleting" msprop:Generator_RowChangingName="detalle_notasRowChanging" msprop:Generator_RowEvHandlerName="detalle_notasRowChangeEventHandler" msprop:Generator_RowDeletedName="detalle_notasRowDeleted" msprop:Generator_RowClassName="detalle_notasRow" msprop:Generator_UserTableName="detalle_notas" msprop:Generator_RowEvArgName="detalle_notasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idDetalle" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidDetalle" msprop:Generator_ColumnPropNameInRow="idDetalle" msprop:Generator_ColumnPropNameInTable="idDetalleColumn" msprop:Generator_UserColumnName="idDetalle" type="xs:int" />
@@ -644,7 +669,7 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="docentes" msprop:Generator_TableClassName="docentesDataTable" msprop:Generator_TableVarName="tabledocentes" msprop:Generator_TablePropName="docentes" msprop:Generator_RowDeletingName="docentesRowDeleting" msprop:Generator_RowChangingName="docentesRowChanging" msprop:Generator_RowEvHandlerName="docentesRowChangeEventHandler" msprop:Generator_RowDeletedName="docentesRowDeleted" msprop:Generator_UserTableName="docentes" msprop:Generator_RowChangedName="docentesRowChanged" msprop:Generator_RowEvArgName="docentesRowChangeEvent" msprop:Generator_RowClassName="docentesRow">
+        <xs:element name="docentes" msprop:Generator_TableClassName="docentesDataTable" msprop:Generator_TableVarName="tabledocentes" msprop:Generator_RowChangedName="docentesRowChanged" msprop:Generator_TablePropName="docentes" msprop:Generator_RowDeletingName="docentesRowDeleting" msprop:Generator_RowChangingName="docentesRowChanging" msprop:Generator_RowEvHandlerName="docentesRowChangeEventHandler" msprop:Generator_RowDeletedName="docentesRowDeleted" msprop:Generator_RowClassName="docentesRow" msprop:Generator_UserTableName="docentes" msprop:Generator_RowEvArgName="docentesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idDocente" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidDocente" msprop:Generator_ColumnPropNameInRow="idDocente" msprop:Generator_ColumnPropNameInTable="idDocenteColumn" msprop:Generator_UserColumnName="idDocente" type="xs:int" />
@@ -679,7 +704,7 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inscripcion" msprop:Generator_TableClassName="inscripcionDataTable" msprop:Generator_TableVarName="tableinscripcion" msprop:Generator_TablePropName="inscripcion" msprop:Generator_RowDeletingName="inscripcionRowDeleting" msprop:Generator_RowChangingName="inscripcionRowChanging" msprop:Generator_RowEvHandlerName="inscripcionRowChangeEventHandler" msprop:Generator_RowDeletedName="inscripcionRowDeleted" msprop:Generator_UserTableName="inscripcion" msprop:Generator_RowChangedName="inscripcionRowChanged" msprop:Generator_RowEvArgName="inscripcionRowChangeEvent" msprop:Generator_RowClassName="inscripcionRow">
+        <xs:element name="inscripcion" msprop:Generator_TableClassName="inscripcionDataTable" msprop:Generator_TableVarName="tableinscripcion" msprop:Generator_RowChangedName="inscripcionRowChanged" msprop:Generator_TablePropName="inscripcion" msprop:Generator_RowDeletingName="inscripcionRowDeleting" msprop:Generator_RowChangingName="inscripcionRowChanging" msprop:Generator_RowEvHandlerName="inscripcionRowChangeEventHandler" msprop:Generator_RowDeletedName="inscripcionRowDeleted" msprop:Generator_RowClassName="inscripcionRow" msprop:Generator_UserTableName="inscripcion" msprop:Generator_RowEvArgName="inscripcionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idInscripcion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidInscripcion" msprop:Generator_ColumnPropNameInRow="idInscripcion" msprop:Generator_ColumnPropNameInTable="idInscripcionColumn" msprop:Generator_UserColumnName="idInscripcion" type="xs:int" />
@@ -688,7 +713,7 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="materias" msprop:Generator_TableClassName="materiasDataTable" msprop:Generator_TableVarName="tablematerias" msprop:Generator_TablePropName="materias" msprop:Generator_RowDeletingName="materiasRowDeleting" msprop:Generator_RowChangingName="materiasRowChanging" msprop:Generator_RowEvHandlerName="materiasRowChangeEventHandler" msprop:Generator_RowDeletedName="materiasRowDeleted" msprop:Generator_UserTableName="materias" msprop:Generator_RowChangedName="materiasRowChanged" msprop:Generator_RowEvArgName="materiasRowChangeEvent" msprop:Generator_RowClassName="materiasRow">
+        <xs:element name="materias" msprop:Generator_TableClassName="materiasDataTable" msprop:Generator_TableVarName="tablematerias" msprop:Generator_RowChangedName="materiasRowChanged" msprop:Generator_TablePropName="materias" msprop:Generator_RowDeletingName="materiasRowDeleting" msprop:Generator_RowChangingName="materiasRowChanging" msprop:Generator_RowEvHandlerName="materiasRowChangeEventHandler" msprop:Generator_RowDeletedName="materiasRowDeleted" msprop:Generator_RowClassName="materiasRow" msprop:Generator_UserTableName="materias" msprop:Generator_RowEvArgName="materiasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idMateria" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidMateria" msprop:Generator_ColumnPropNameInRow="idMateria" msprop:Generator_ColumnPropNameInTable="idMateriaColumn" msprop:Generator_UserColumnName="idMateria" type="xs:int" />
@@ -704,7 +729,7 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="matricula" msprop:Generator_TableClassName="matriculaDataTable" msprop:Generator_TableVarName="tablematricula" msprop:Generator_TablePropName="matricula" msprop:Generator_RowDeletingName="matriculaRowDeleting" msprop:Generator_RowChangingName="matriculaRowChanging" msprop:Generator_RowEvHandlerName="matriculaRowChangeEventHandler" msprop:Generator_RowDeletedName="matriculaRowDeleted" msprop:Generator_UserTableName="matricula" msprop:Generator_RowChangedName="matriculaRowChanged" msprop:Generator_RowEvArgName="matriculaRowChangeEvent" msprop:Generator_RowClassName="matriculaRow">
+        <xs:element name="matricula" msprop:Generator_TableClassName="matriculaDataTable" msprop:Generator_TableVarName="tablematricula" msprop:Generator_RowChangedName="matriculaRowChanged" msprop:Generator_TablePropName="matricula" msprop:Generator_RowDeletingName="matriculaRowDeleting" msprop:Generator_RowChangingName="matriculaRowChanging" msprop:Generator_RowEvHandlerName="matriculaRowChangeEventHandler" msprop:Generator_RowDeletedName="matriculaRowDeleted" msprop:Generator_RowClassName="matriculaRow" msprop:Generator_UserTableName="matricula" msprop:Generator_RowEvArgName="matriculaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idMatricula" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidMatricula" msprop:Generator_ColumnPropNameInRow="idMatricula" msprop:Generator_ColumnPropNameInTable="idMatriculaColumn" msprop:Generator_UserColumnName="idMatricula" type="xs:int" />
@@ -714,7 +739,7 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="notas" msprop:Generator_TableClassName="notasDataTable" msprop:Generator_TableVarName="tablenotas" msprop:Generator_TablePropName="notas" msprop:Generator_RowDeletingName="notasRowDeleting" msprop:Generator_RowChangingName="notasRowChanging" msprop:Generator_RowEvHandlerName="notasRowChangeEventHandler" msprop:Generator_RowDeletedName="notasRowDeleted" msprop:Generator_UserTableName="notas" msprop:Generator_RowChangedName="notasRowChanged" msprop:Generator_RowEvArgName="notasRowChangeEvent" msprop:Generator_RowClassName="notasRow">
+        <xs:element name="notas" msprop:Generator_TableClassName="notasDataTable" msprop:Generator_TableVarName="tablenotas" msprop:Generator_RowChangedName="notasRowChanged" msprop:Generator_TablePropName="notas" msprop:Generator_RowDeletingName="notasRowDeleting" msprop:Generator_RowChangingName="notasRowChanging" msprop:Generator_RowEvHandlerName="notasRowChangeEventHandler" msprop:Generator_RowDeletedName="notasRowDeleted" msprop:Generator_RowClassName="notasRow" msprop:Generator_UserTableName="notas" msprop:Generator_RowEvArgName="notasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idNota" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidNota" msprop:Generator_ColumnPropNameInRow="idNota" msprop:Generator_ColumnPropNameInTable="idNotaColumn" msprop:Generator_UserColumnName="idNota" type="xs:int" />
@@ -723,11 +748,42 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="periodos" msprop:Generator_TableClassName="periodosDataTable" msprop:Generator_TableVarName="tableperiodos" msprop:Generator_TablePropName="periodos" msprop:Generator_RowDeletingName="periodosRowDeleting" msprop:Generator_RowChangingName="periodosRowChanging" msprop:Generator_RowEvHandlerName="periodosRowChangeEventHandler" msprop:Generator_RowDeletedName="periodosRowDeleted" msprop:Generator_UserTableName="periodos" msprop:Generator_RowChangedName="periodosRowChanged" msprop:Generator_RowEvArgName="periodosRowChangeEvent" msprop:Generator_RowClassName="periodosRow">
+        <xs:element name="periodos" msprop:Generator_TableClassName="periodosDataTable" msprop:Generator_TableVarName="tableperiodos" msprop:Generator_RowChangedName="periodosRowChanged" msprop:Generator_TablePropName="periodos" msprop:Generator_RowDeletingName="periodosRowDeleting" msprop:Generator_RowChangingName="periodosRowChanging" msprop:Generator_RowEvHandlerName="periodosRowChangeEventHandler" msprop:Generator_RowDeletedName="periodosRowDeleted" msprop:Generator_RowClassName="periodosRow" msprop:Generator_UserTableName="periodos" msprop:Generator_RowEvArgName="periodosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idPeriodo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidPeriodo" msprop:Generator_ColumnPropNameInRow="idPeriodo" msprop:Generator_ColumnPropNameInTable="idPeriodoColumn" msprop:Generator_UserColumnName="idPeriodo" type="xs:int" />
               <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" />
+              <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="matriculaAlumnosPeriodos" msprop:Generator_TableClassName="matriculaAlumnosPeriodosDataTable" msprop:Generator_TableVarName="tablematriculaAlumnosPeriodos" msprop:Generator_TablePropName="matriculaAlumnosPeriodos" msprop:Generator_RowDeletingName="matriculaAlumnosPeriodosRowDeleting" msprop:Generator_RowChangingName="matriculaAlumnosPeriodosRowChanging" msprop:Generator_RowEvHandlerName="matriculaAlumnosPeriodosRowChangeEventHandler" msprop:Generator_RowDeletedName="matriculaAlumnosPeriodosRowDeleted" msprop:Generator_UserTableName="matriculaAlumnosPeriodos" msprop:Generator_RowChangedName="matriculaAlumnosPeriodosRowChanged" msprop:Generator_RowEvArgName="matriculaAlumnosPeriodosRowChangeEvent" msprop:Generator_RowClassName="matriculaAlumnosPeriodosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idMatricula" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidMatricula" msprop:Generator_ColumnPropNameInRow="idMatricula" msprop:Generator_ColumnPropNameInTable="idMatriculaColumn" msprop:Generator_UserColumnName="idMatricula" type="xs:int" />
+              <xs:element name="idAlumno" msprop:Generator_ColumnVarNameInTable="columnidAlumno" msprop:Generator_ColumnPropNameInRow="idAlumno" msprop:Generator_ColumnPropNameInTable="idAlumnoColumn" msprop:Generator_UserColumnName="idAlumno" type="xs:int" />
+              <xs:element name="idPeriodo" msprop:Generator_ColumnVarNameInTable="columnidPeriodo" msprop:Generator_ColumnPropNameInRow="idPeriodo" msprop:Generator_ColumnPropNameInTable="idPeriodoColumn" msprop:Generator_UserColumnName="idPeriodo" type="xs:int" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_UserColumnName="codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -776,17 +832,21 @@ SELECT idPeriodo, fecha, periodo FROM periodos WHERE (idPeriodo = @idPeriodo)</C
       <xs:selector xpath=".//mstns:periodos" />
       <xs:field xpath="mstns:idPeriodo" />
     </xs:unique>
+    <xs:unique name="matriculaAlumnosPeriodos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:matriculaAlumnosPeriodos" />
+      <xs:field xpath="mstns:idMatricula" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_idInscripcion" msdata:parent="inscripcion" msdata:child="detalle_inscripcion" msdata:parentkey="idInscripcion" msdata:childkey="idInscripcion" msprop:Generator_UserChildTable="detalle_inscripcion" msprop:Generator_ChildPropName="Getdetalle_inscripcionRows" msprop:Generator_UserRelationName="fk_idInscripcion" msprop:Generator_RelationVarName="relationfk_idInscripcion" msprop:Generator_UserParentTable="inscripcion" msprop:Generator_ParentPropName="inscripcionRow" />
-      <msdata:Relationship name="fk_idMateria" msdata:parent="materias" msdata:child="detalle_inscripcion" msdata:parentkey="idMateria" msdata:childkey="idMateria" msprop:Generator_UserChildTable="detalle_inscripcion" msprop:Generator_ChildPropName="Getdetalle_inscripcionRows" msprop:Generator_UserRelationName="fk_idMateria" msprop:Generator_RelationVarName="relationfk_idMateria" msprop:Generator_UserParentTable="materias" msprop:Generator_ParentPropName="materiasRow" />
-      <msdata:Relationship name="fk_detalle_idDetalleInscripcion" msdata:parent="detalle_inscripcion" msdata:child="detalle_notas" msdata:parentkey="idDetalle" msdata:childkey="idDetalleInscripcion" msprop:Generator_UserChildTable="detalle_notas" msprop:Generator_ChildPropName="Getdetalle_notasRows" msprop:Generator_UserRelationName="fk_detalle_idDetalleInscripcion" msprop:Generator_ParentPropName="detalle_inscripcionRow" msprop:Generator_RelationVarName="relationfk_detalle_idDetalleInscripcion" msprop:Generator_UserParentTable="detalle_inscripcion" />
-      <msdata:Relationship name="fk_detalle_idNota" msdata:parent="notas" msdata:child="detalle_notas" msdata:parentkey="idNota" msdata:childkey="idNota" msprop:Generator_UserChildTable="detalle_notas" msprop:Generator_ChildPropName="Getdetalle_notasRows" msprop:Generator_UserRelationName="fk_detalle_idNota" msprop:Generator_RelationVarName="relationfk_detalle_idNota" msprop:Generator_UserParentTable="notas" msprop:Generator_ParentPropName="notasRow" />
-      <msdata:Relationship name="fk_idMatricula" msdata:parent="matricula" msdata:child="inscripcion" msdata:parentkey="idMatricula" msdata:childkey="idMatricula" msprop:Generator_UserChildTable="inscripcion" msprop:Generator_ChildPropName="GetinscripcionRows" msprop:Generator_UserRelationName="fk_idMatricula" msprop:Generator_RelationVarName="relationfk_idMatricula" msprop:Generator_UserParentTable="matricula" msprop:Generator_ParentPropName="matriculaRow" />
-      <msdata:Relationship name="fk_idAlumno" msdata:parent="alumnos" msdata:child="matricula" msdata:parentkey="idAlumno" msdata:childkey="idAlumno" msprop:Generator_UserChildTable="matricula" msprop:Generator_ChildPropName="GetmatriculaRows" msprop:Generator_UserRelationName="fk_idAlumno" msprop:Generator_ParentPropName="alumnosRow" msprop:Generator_RelationVarName="relationfk_idAlumno" msprop:Generator_UserParentTable="alumnos" />
-      <msdata:Relationship name="fk_idPeriodo" msdata:parent="periodos" msdata:child="matricula" msdata:parentkey="idPeriodo" msdata:childkey="idPeriodo" msprop:Generator_UserChildTable="matricula" msprop:Generator_ChildPropName="GetmatriculaRows" msprop:Generator_UserRelationName="fk_idPeriodo" msprop:Generator_RelationVarName="relationfk_idPeriodo" msprop:Generator_UserParentTable="periodos" msprop:Generator_ParentPropName="periodosRow" />
-      <msdata:Relationship name="fk_notas_idInscripcion" msdata:parent="inscripcion" msdata:child="notas" msdata:parentkey="idInscripcion" msdata:childkey="idInscripcion" msprop:Generator_UserChildTable="notas" msprop:Generator_ChildPropName="GetnotasRows" msprop:Generator_UserRelationName="fk_notas_idInscripcion" msprop:Generator_ParentPropName="inscripcionRow" msprop:Generator_RelationVarName="relationfk_notas_idInscripcion" msprop:Generator_UserParentTable="inscripcion" />
+      <msdata:Relationship name="fk_idInscripcion" msdata:parent="inscripcion" msdata:child="detalle_inscripcion" msdata:parentkey="idInscripcion" msdata:childkey="idInscripcion" msprop:Generator_UserChildTable="detalle_inscripcion" msprop:Generator_ChildPropName="Getdetalle_inscripcionRows" msprop:Generator_UserRelationName="fk_idInscripcion" msprop:Generator_ParentPropName="inscripcionRow" msprop:Generator_RelationVarName="relationfk_idInscripcion" msprop:Generator_UserParentTable="inscripcion" />
+      <msdata:Relationship name="fk_idMateria" msdata:parent="materias" msdata:child="detalle_inscripcion" msdata:parentkey="idMateria" msdata:childkey="idMateria" msprop:Generator_UserChildTable="detalle_inscripcion" msprop:Generator_ChildPropName="Getdetalle_inscripcionRows" msprop:Generator_UserRelationName="fk_idMateria" msprop:Generator_ParentPropName="materiasRow" msprop:Generator_RelationVarName="relationfk_idMateria" msprop:Generator_UserParentTable="materias" />
+      <msdata:Relationship name="fk_detalle_idDetalleInscripcion" msdata:parent="detalle_inscripcion" msdata:child="detalle_notas" msdata:parentkey="idDetalle" msdata:childkey="idDetalleInscripcion" msprop:Generator_UserChildTable="detalle_notas" msprop:Generator_ChildPropName="Getdetalle_notasRows" msprop:Generator_UserRelationName="fk_detalle_idDetalleInscripcion" msprop:Generator_RelationVarName="relationfk_detalle_idDetalleInscripcion" msprop:Generator_UserParentTable="detalle_inscripcion" msprop:Generator_ParentPropName="detalle_inscripcionRow" />
+      <msdata:Relationship name="fk_detalle_idNota" msdata:parent="notas" msdata:child="detalle_notas" msdata:parentkey="idNota" msdata:childkey="idNota" msprop:Generator_UserChildTable="detalle_notas" msprop:Generator_ChildPropName="Getdetalle_notasRows" msprop:Generator_UserRelationName="fk_detalle_idNota" msprop:Generator_ParentPropName="notasRow" msprop:Generator_RelationVarName="relationfk_detalle_idNota" msprop:Generator_UserParentTable="notas" />
+      <msdata:Relationship name="fk_idMatricula" msdata:parent="matricula" msdata:child="inscripcion" msdata:parentkey="idMatricula" msdata:childkey="idMatricula" msprop:Generator_UserChildTable="inscripcion" msprop:Generator_ChildPropName="GetinscripcionRows" msprop:Generator_UserRelationName="fk_idMatricula" msprop:Generator_ParentPropName="matriculaRow" msprop:Generator_RelationVarName="relationfk_idMatricula" msprop:Generator_UserParentTable="matricula" />
+      <msdata:Relationship name="fk_idAlumno" msdata:parent="alumnos" msdata:child="matricula" msdata:parentkey="idAlumno" msdata:childkey="idAlumno" msprop:Generator_UserChildTable="matricula" msprop:Generator_ChildPropName="GetmatriculaRows" msprop:Generator_UserRelationName="fk_idAlumno" msprop:Generator_RelationVarName="relationfk_idAlumno" msprop:Generator_UserParentTable="alumnos" msprop:Generator_ParentPropName="alumnosRow" />
+      <msdata:Relationship name="fk_idPeriodo" msdata:parent="periodos" msdata:child="matricula" msdata:parentkey="idPeriodo" msdata:childkey="idPeriodo" msprop:Generator_UserChildTable="matricula" msprop:Generator_ChildPropName="GetmatriculaRows" msprop:Generator_UserRelationName="fk_idPeriodo" msprop:Generator_ParentPropName="periodosRow" msprop:Generator_RelationVarName="relationfk_idPeriodo" msprop:Generator_UserParentTable="periodos" />
+      <msdata:Relationship name="fk_notas_idInscripcion" msdata:parent="inscripcion" msdata:child="notas" msdata:parentkey="idInscripcion" msdata:childkey="idInscripcion" msprop:Generator_UserChildTable="notas" msprop:Generator_ChildPropName="GetnotasRows" msprop:Generator_UserRelationName="fk_notas_idInscripcion" msprop:Generator_RelationVarName="relationfk_notas_idInscripcion" msprop:Generator_UserParentTable="inscripcion" msprop:Generator_ParentPropName="inscripcionRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
