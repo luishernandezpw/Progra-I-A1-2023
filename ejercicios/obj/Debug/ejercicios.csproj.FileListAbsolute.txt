@@ -28,3 +28,4 @@ C:\Users\Estudiante\Source\Repos\Progra-I-A1-2023\ejercicios\obj\Debug\ejercicio
 C:\Users\Estudiante\Source\Repos\Progra-I-A1-2023\ejercicios\obj\Debug\ejercicios.materias.resources
 C:\Users\Estudiante\Source\Repos\Progra-I-A1-2023\ejercicios\obj\Debug\ejercicios.matricula.resources
 C:\Users\Estudiante\Source\Repos\Progra-I-A1-2023\ejercicios\obj\Debug\ejercicios.principal.resources
+C:\Users\Luis Hernandez\Source\Repos\Progra-I-A1-2023\ejercicios\obj\Debug\ejercicios.inscripcion.resources

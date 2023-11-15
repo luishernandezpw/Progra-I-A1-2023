@@ -4,7 +4,7 @@
 
     partial class db_academicoDataSet
     {
-        partial class DataTable1DataTable
+        partial class dInscripcionMateriaDataTable
         {
         }
     }

@@ -54,11 +54,11 @@
             this.lblFechaMatricula = new System.Windows.Forms.Label();
             this.dtFechaMatriucla = new System.Windows.Forms.DateTimePicker();
             this.matriculaDataGridView = new System.Windows.Forms.DataGridView();
+            this.matriculaAlumnosPeriodosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblBuscarMatricula = new System.Windows.Forms.Label();
             this.txtBuscarMatricula = new System.Windows.Forms.TextBox();
-            this.matriculaAlumnosPeriodosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtMatriculaAlumnosPeriodos = new ejercicios.db_academicoDataSetTableAdapters.dtMatriculaAlumnosPeriodos();
-            this.idMatriculaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMatricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idAlumnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idPeriodoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.periodoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -304,7 +304,7 @@
             this.matriculaDataGridView.AutoGenerateColumns = false;
             this.matriculaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.matriculaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idMatriculaDataGridViewTextBoxColumn,
+            this.idMatricula,
             this.idAlumnoDataGridViewTextBoxColumn,
             this.idPeriodoDataGridViewTextBoxColumn,
             this.periodoDataGridViewTextBoxColumn,
@@ -316,6 +316,12 @@
             this.matriculaDataGridView.ReadOnly = true;
             this.matriculaDataGridView.Size = new System.Drawing.Size(445, 220);
             this.matriculaDataGridView.TabIndex = 13;
+            this.matriculaDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.matriculaDataGridView_CellClick);
+            // 
+            // matriculaAlumnosPeriodosBindingSource
+            // 
+            this.matriculaAlumnosPeriodosBindingSource.DataMember = "matriculaAlumnosPeriodos";
+            this.matriculaAlumnosPeriodosBindingSource.DataSource = this.db_academicoDataSet;
             // 
             // lblBuscarMatricula
             // 
@@ -332,22 +338,18 @@
             this.txtBuscarMatricula.Name = "txtBuscarMatricula";
             this.txtBuscarMatricula.Size = new System.Drawing.Size(398, 20);
             this.txtBuscarMatricula.TabIndex = 15;
-            // 
-            // matriculaAlumnosPeriodosBindingSource
-            // 
-            this.matriculaAlumnosPeriodosBindingSource.DataMember = "matriculaAlumnosPeriodos";
-            this.matriculaAlumnosPeriodosBindingSource.DataSource = this.db_academicoDataSet;
+            this.txtBuscarMatricula.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscarMatricula_KeyUp);
             // 
             // dtMatriculaAlumnosPeriodos
             // 
             this.dtMatriculaAlumnosPeriodos.ClearBeforeFill = true;
             // 
-            // idMatriculaDataGridViewTextBoxColumn
+            // idMatricula
             // 
-            this.idMatriculaDataGridViewTextBoxColumn.DataPropertyName = "idMatricula";
-            this.idMatriculaDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.idMatriculaDataGridViewTextBoxColumn.Name = "idMatriculaDataGridViewTextBoxColumn";
-            this.idMatriculaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idMatricula.DataPropertyName = "idMatricula";
+            this.idMatricula.HeaderText = "ID";
+            this.idMatricula.Name = "idMatricula";
+            this.idMatricula.ReadOnly = true;
             // 
             // idAlumnoDataGridViewTextBoxColumn
             // 
@@ -449,7 +451,7 @@
         private System.Windows.Forms.TextBox txtBuscarMatricula;
         private System.Windows.Forms.BindingSource matriculaAlumnosPeriodosBindingSource;
         private db_academicoDataSetTableAdapters.dtMatriculaAlumnosPeriodos dtMatriculaAlumnosPeriodos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMatriculaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMatricula;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAlumnoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPeriodoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn periodoDataGridViewTextBoxColumn;
