@@ -34,8 +34,11 @@
             System.Windows.Forms.Label idAlumnoLabel;
             System.Windows.Forms.Label periodoLabel;
             this.idInscripcionTextBox = new System.Windows.Forms.TextBox();
+            this.inscripcionMatriculaPeridoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_academicoDataSet = new ejercicios.db_academicoDataSet();
             this.fechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.idAlumnoComboBox = new System.Windows.Forms.ComboBox();
+            this.alumnosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.periodoLabel1 = new System.Windows.Forms.Label();
             this.dInscripcionMateriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dInscripcionMateriaDataGridView = new System.Windows.Forms.DataGridView();
@@ -51,30 +54,28 @@
             this.btnPrimeroInscripcion = new System.Windows.Forms.Button();
             this.btnAgregarMateriaInscripcion = new System.Windows.Forms.Button();
             this.btnEliminarMateriaInscripcion = new System.Windows.Forms.Button();
+            this.inscripcionMatriculaPeridoTableAdapter = new ejercicios.db_academicoDataSetTableAdapters.inscripcionMatriculaPeridoTableAdapter();
+            this.tableAdapterManager = new ejercicios.db_academicoDataSetTableAdapters.TableAdapterManager();
+            this.alumnosTableAdapter = new ejercicios.db_academicoDataSetTableAdapters.alumnosTableAdapter();
+            this.dtDetalleInscripcionMateria = new ejercicios.db_academicoDataSetTableAdapters.dtDetalleInscripcionMateria();
+            this.detalle_inscripcionTableAdapter = new ejercicios.db_academicoDataSetTableAdapters.detalle_inscripcionTableAdapter();
             this.idDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idInscripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inscripcionMatriculaPeridoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.db_academicoDataSet = new ejercicios.db_academicoDataSet();
-            this.alumnosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inscripcionMatriculaPeridoTableAdapter = new ejercicios.db_academicoDataSetTableAdapters.inscripcionMatriculaPeridoTableAdapter();
-            this.tableAdapterManager = new ejercicios.db_academicoDataSetTableAdapters.TableAdapterManager();
-            this.alumnosTableAdapter = new ejercicios.db_academicoDataSetTableAdapters.alumnosTableAdapter();
-            this.dtDetalleInscripcionMateria = new ejercicios.db_academicoDataSetTableAdapters.dtDetalleInscripcionMateria();
             idInscripcionLabel = new System.Windows.Forms.Label();
             fechaLabel = new System.Windows.Forms.Label();
             idAlumnoLabel = new System.Windows.Forms.Label();
             periodoLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.inscripcionMatriculaPeridoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_academicoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alumnosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dInscripcionMateriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dInscripcionMateriaDataGridView)).BeginInit();
             this.grbEdicionInscripcion.SuspendLayout();
             this.grbNavegacionInscripcion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inscripcionMatriculaPeridoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_academicoDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alumnosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // idInscripcionLabel
@@ -86,6 +87,33 @@
             idInscripcionLabel.TabIndex = 1;
             idInscripcionLabel.Text = "ID Inscripcion:";
             // 
+            // fechaLabel
+            // 
+            fechaLabel.AutoSize = true;
+            fechaLabel.Location = new System.Drawing.Point(24, 66);
+            fechaLabel.Name = "fechaLabel";
+            fechaLabel.Size = new System.Drawing.Size(40, 13);
+            fechaLabel.TabIndex = 5;
+            fechaLabel.Text = "Fecha:";
+            // 
+            // idAlumnoLabel
+            // 
+            idAlumnoLabel.AutoSize = true;
+            idAlumnoLabel.Location = new System.Drawing.Point(24, 94);
+            idAlumnoLabel.Name = "idAlumnoLabel";
+            idAlumnoLabel.Size = new System.Drawing.Size(45, 13);
+            idAlumnoLabel.TabIndex = 7;
+            idAlumnoLabel.Text = "Alumno:";
+            // 
+            // periodoLabel
+            // 
+            periodoLabel.AutoSize = true;
+            periodoLabel.Location = new System.Drawing.Point(24, 123);
+            periodoLabel.Name = "periodoLabel";
+            periodoLabel.Size = new System.Drawing.Size(46, 13);
+            periodoLabel.TabIndex = 11;
+            periodoLabel.Text = "Periodo:";
+            // 
             // idInscripcionTextBox
             // 
             this.idInscripcionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inscripcionMatriculaPeridoBindingSource, "idInscripcion", true));
@@ -96,14 +124,15 @@
             this.idInscripcionTextBox.Size = new System.Drawing.Size(89, 20);
             this.idInscripcionTextBox.TabIndex = 2;
             // 
-            // fechaLabel
+            // inscripcionMatriculaPeridoBindingSource
             // 
-            fechaLabel.AutoSize = true;
-            fechaLabel.Location = new System.Drawing.Point(24, 66);
-            fechaLabel.Name = "fechaLabel";
-            fechaLabel.Size = new System.Drawing.Size(40, 13);
-            fechaLabel.TabIndex = 5;
-            fechaLabel.Text = "Fecha:";
+            this.inscripcionMatriculaPeridoBindingSource.DataMember = "inscripcionMatriculaPerido";
+            this.inscripcionMatriculaPeridoBindingSource.DataSource = this.db_academicoDataSet;
+            // 
+            // db_academicoDataSet
+            // 
+            this.db_academicoDataSet.DataSetName = "db_academicoDataSet";
+            this.db_academicoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // fechaDateTimePicker
             // 
@@ -113,15 +142,6 @@
             this.fechaDateTimePicker.Name = "fechaDateTimePicker";
             this.fechaDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.fechaDateTimePicker.TabIndex = 6;
-            // 
-            // idAlumnoLabel
-            // 
-            idAlumnoLabel.AutoSize = true;
-            idAlumnoLabel.Location = new System.Drawing.Point(24, 94);
-            idAlumnoLabel.Name = "idAlumnoLabel";
-            idAlumnoLabel.Size = new System.Drawing.Size(45, 13);
-            idAlumnoLabel.TabIndex = 7;
-            idAlumnoLabel.Text = "Alumno:";
             // 
             // idAlumnoComboBox
             // 
@@ -138,14 +158,10 @@
             this.idAlumnoComboBox.TabIndex = 8;
             this.idAlumnoComboBox.ValueMember = "idAlumno";
             // 
-            // periodoLabel
+            // alumnosBindingSource
             // 
-            periodoLabel.AutoSize = true;
-            periodoLabel.Location = new System.Drawing.Point(24, 123);
-            periodoLabel.Name = "periodoLabel";
-            periodoLabel.Size = new System.Drawing.Size(46, 13);
-            periodoLabel.TabIndex = 11;
-            periodoLabel.Text = "Periodo:";
+            this.alumnosBindingSource.DataMember = "alumnos";
+            this.alumnosBindingSource.DataSource = this.db_academicoDataSet;
             // 
             // periodoLabel1
             // 
@@ -317,6 +333,36 @@
             this.btnEliminarMateriaInscripcion.UseVisualStyleBackColor = true;
             this.btnEliminarMateriaInscripcion.Click += new System.EventHandler(this.btnEliminarMateriaInscripcion_Click);
             // 
+            // inscripcionMatriculaPeridoTableAdapter
+            // 
+            this.inscripcionMatriculaPeridoTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.alumnosTableAdapter = this.alumnosTableAdapter;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.detalle_inscripcionTableAdapter = null;
+            this.tableAdapterManager.detalle_notasTableAdapter = null;
+            this.tableAdapterManager.docentesTableAdapter = null;
+            this.tableAdapterManager.inscripcionTableAdapter = null;
+            this.tableAdapterManager.materiasTableAdapter = null;
+            this.tableAdapterManager.matriculaTableAdapter = null;
+            this.tableAdapterManager.notasTableAdapter = null;
+            this.tableAdapterManager.periodosTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = ejercicios.db_academicoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // alumnosTableAdapter
+            // 
+            this.alumnosTableAdapter.ClearBeforeFill = true;
+            // 
+            // dtDetalleInscripcionMateria
+            // 
+            this.dtDetalleInscripcionMateria.ClearBeforeFill = true;
+            // 
+            // detalle_inscripcionTableAdapter
+            // 
+            this.detalle_inscripcionTableAdapter.ClearBeforeFill = true;
+            // 
             // idDetalle
             // 
             this.idDetalle.DataPropertyName = "idDetalle";
@@ -364,47 +410,6 @@
             this.uv.ReadOnly = true;
             this.uv.Width = 50;
             // 
-            // inscripcionMatriculaPeridoBindingSource
-            // 
-            this.inscripcionMatriculaPeridoBindingSource.DataMember = "inscripcionMatriculaPerido";
-            this.inscripcionMatriculaPeridoBindingSource.DataSource = this.db_academicoDataSet;
-            // 
-            // db_academicoDataSet
-            // 
-            this.db_academicoDataSet.DataSetName = "db_academicoDataSet";
-            this.db_academicoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // alumnosBindingSource
-            // 
-            this.alumnosBindingSource.DataMember = "alumnos";
-            this.alumnosBindingSource.DataSource = this.db_academicoDataSet;
-            // 
-            // inscripcionMatriculaPeridoTableAdapter
-            // 
-            this.inscripcionMatriculaPeridoTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.alumnosTableAdapter = this.alumnosTableAdapter;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.detalle_inscripcionTableAdapter = null;
-            this.tableAdapterManager.detalle_notasTableAdapter = null;
-            this.tableAdapterManager.docentesTableAdapter = null;
-            this.tableAdapterManager.inscripcionTableAdapter = null;
-            this.tableAdapterManager.materiasTableAdapter = null;
-            this.tableAdapterManager.matriculaTableAdapter = null;
-            this.tableAdapterManager.notasTableAdapter = null;
-            this.tableAdapterManager.periodosTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ejercicios.db_academicoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // alumnosTableAdapter
-            // 
-            this.alumnosTableAdapter.ClearBeforeFill = true;
-            // 
-            // dtDetalleInscripcionMateria
-            // 
-            this.dtDetalleInscripcionMateria.ClearBeforeFill = true;
-            // 
             // inscripcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,14 +431,14 @@
             this.Name = "inscripcion";
             this.Text = "inscripcion";
             this.Load += new System.EventHandler(this.inscripcion_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.inscripcionMatriculaPeridoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_academicoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alumnosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dInscripcionMateriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dInscripcionMateriaDataGridView)).EndInit();
             this.grbEdicionInscripcion.ResumeLayout(false);
             this.grbNavegacionInscripcion.ResumeLayout(false);
             this.grbNavegacionInscripcion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inscripcionMatriculaPeridoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_academicoDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alumnosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,6 +471,7 @@
         private System.Windows.Forms.Button btnPrimeroInscripcion;
         private System.Windows.Forms.Button btnAgregarMateriaInscripcion;
         private System.Windows.Forms.Button btnEliminarMateriaInscripcion;
+        private db_academicoDataSetTableAdapters.detalle_inscripcionTableAdapter detalle_inscripcionTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn idInscripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMateria;
