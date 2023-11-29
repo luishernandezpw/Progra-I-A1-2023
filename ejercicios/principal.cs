@@ -49,5 +49,24 @@ namespace ejercicios
             objInscripcion.MdiParent = this;
             objInscripcion.Show();
         }
+
+        private void alumnosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmImpresionAlumnos objImpresionAlumno = new frmImpresionAlumnos();
+            objImpresionAlumno.MdiParent = this;
+            objImpresionAlumno.Show();
+        }
+
+        private void listadoMateriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmImpresionMaterias objImpresionMateria = new frmImpresionMaterias();
+            objImpresionMateria.MdiParent = this;
+            objImpresionMateria.Show();
+        }
+
+        private void fichaInscripcionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

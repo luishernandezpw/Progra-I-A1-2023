@@ -164,5 +164,11 @@ namespace ejercicios
         {
             dInscripcionMateriaDataGridView.Rows.Remove(dInscripcionMateriaDataGridView.CurrentRow);
         }
+
+        private void btnImprimirInscripcion_Click(object sender, EventArgs e)
+        {
+            frmImpresionInscripcion objImpresionInscripcion = new frmImpresionInscripcion( int.Parse(idInscripcionTextBox.Text) );
+            objImpresionInscripcion.ShowDialog();
+        }
     }
 }

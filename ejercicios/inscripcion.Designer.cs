@@ -42,6 +42,12 @@
             this.periodoLabel1 = new System.Windows.Forms.Label();
             this.dInscripcionMateriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dInscripcionMateriaDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idInscripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbEdicionInscripcion = new System.Windows.Forms.GroupBox();
             this.btnEliminarInscripcion = new System.Windows.Forms.Button();
             this.btnModificarInscripcion = new System.Windows.Forms.Button();
@@ -59,12 +65,7 @@
             this.alumnosTableAdapter = new ejercicios.db_academicoDataSetTableAdapters.alumnosTableAdapter();
             this.dtDetalleInscripcionMateria = new ejercicios.db_academicoDataSetTableAdapters.dtDetalleInscripcionMateria();
             this.detalle_inscripcionTableAdapter = new ejercicios.db_academicoDataSetTableAdapters.detalle_inscripcionTableAdapter();
-            this.idDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idInscripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnImprimirInscripcion = new System.Windows.Forms.Button();
             idInscripcionLabel = new System.Windows.Forms.Label();
             fechaLabel = new System.Windows.Forms.Label();
             idAlumnoLabel = new System.Windows.Forms.Label();
@@ -197,14 +198,62 @@
             this.dInscripcionMateriaDataGridView.Size = new System.Drawing.Size(448, 220);
             this.dInscripcionMateriaDataGridView.TabIndex = 12;
             // 
+            // idDetalle
+            // 
+            this.idDetalle.DataPropertyName = "idDetalle";
+            this.idDetalle.HeaderText = "idDetalle";
+            this.idDetalle.Name = "idDetalle";
+            this.idDetalle.ReadOnly = true;
+            this.idDetalle.Visible = false;
+            // 
+            // idInscripcion
+            // 
+            this.idInscripcion.DataPropertyName = "idInscripcion";
+            this.idInscripcion.HeaderText = "ID";
+            this.idInscripcion.Name = "idInscripcion";
+            this.idInscripcion.ReadOnly = true;
+            this.idInscripcion.Width = 50;
+            // 
+            // idMateria
+            // 
+            this.idMateria.DataPropertyName = "idMateria";
+            this.idMateria.HeaderText = "idMateria";
+            this.idMateria.Name = "idMateria";
+            this.idMateria.ReadOnly = true;
+            this.idMateria.Visible = false;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "codigo";
+            this.codigo.HeaderText = "CODIGO";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            // 
+            // materia
+            // 
+            this.materia.DataPropertyName = "materia";
+            this.materia.HeaderText = "MATERIA";
+            this.materia.Name = "materia";
+            this.materia.ReadOnly = true;
+            this.materia.Width = 200;
+            // 
+            // uv
+            // 
+            this.uv.DataPropertyName = "uv";
+            this.uv.HeaderText = "UV";
+            this.uv.Name = "uv";
+            this.uv.ReadOnly = true;
+            this.uv.Width = 50;
+            // 
             // grbEdicionInscripcion
             // 
+            this.grbEdicionInscripcion.Controls.Add(this.btnImprimirInscripcion);
             this.grbEdicionInscripcion.Controls.Add(this.btnEliminarInscripcion);
             this.grbEdicionInscripcion.Controls.Add(this.btnModificarInscripcion);
             this.grbEdicionInscripcion.Controls.Add(this.btnNuevoInscripcion);
             this.grbEdicionInscripcion.Location = new System.Drawing.Point(258, 385);
             this.grbEdicionInscripcion.Name = "grbEdicionInscripcion";
-            this.grbEdicionInscripcion.Size = new System.Drawing.Size(311, 91);
+            this.grbEdicionInscripcion.Size = new System.Drawing.Size(379, 91);
             this.grbEdicionInscripcion.TabIndex = 15;
             this.grbEdicionInscripcion.TabStop = false;
             this.grbEdicionInscripcion.Text = "Edicion";
@@ -363,58 +412,22 @@
             // 
             this.detalle_inscripcionTableAdapter.ClearBeforeFill = true;
             // 
-            // idDetalle
+            // btnImprimirInscripcion
             // 
-            this.idDetalle.DataPropertyName = "idDetalle";
-            this.idDetalle.HeaderText = "idDetalle";
-            this.idDetalle.Name = "idDetalle";
-            this.idDetalle.ReadOnly = true;
-            this.idDetalle.Visible = false;
-            // 
-            // idInscripcion
-            // 
-            this.idInscripcion.DataPropertyName = "idInscripcion";
-            this.idInscripcion.HeaderText = "ID";
-            this.idInscripcion.Name = "idInscripcion";
-            this.idInscripcion.ReadOnly = true;
-            this.idInscripcion.Width = 50;
-            // 
-            // idMateria
-            // 
-            this.idMateria.DataPropertyName = "idMateria";
-            this.idMateria.HeaderText = "idMateria";
-            this.idMateria.Name = "idMateria";
-            this.idMateria.ReadOnly = true;
-            this.idMateria.Visible = false;
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "codigo";
-            this.codigo.HeaderText = "CODIGO";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            // 
-            // materia
-            // 
-            this.materia.DataPropertyName = "materia";
-            this.materia.HeaderText = "MATERIA";
-            this.materia.Name = "materia";
-            this.materia.ReadOnly = true;
-            this.materia.Width = 200;
-            // 
-            // uv
-            // 
-            this.uv.DataPropertyName = "uv";
-            this.uv.HeaderText = "UV";
-            this.uv.Name = "uv";
-            this.uv.ReadOnly = true;
-            this.uv.Width = 50;
+            this.btnImprimirInscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirInscripcion.Location = new System.Drawing.Point(283, 32);
+            this.btnImprimirInscripcion.Name = "btnImprimirInscripcion";
+            this.btnImprimirInscripcion.Size = new System.Drawing.Size(87, 38);
+            this.btnImprimirInscripcion.TabIndex = 10;
+            this.btnImprimirInscripcion.Text = "Imprimir";
+            this.btnImprimirInscripcion.UseVisualStyleBackColor = true;
+            this.btnImprimirInscripcion.Click += new System.EventHandler(this.btnImprimirInscripcion_Click);
             // 
             // inscripcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 513);
+            this.ClientSize = new System.Drawing.Size(675, 513);
             this.Controls.Add(this.btnEliminarMateriaInscripcion);
             this.Controls.Add(this.btnAgregarMateriaInscripcion);
             this.Controls.Add(this.grbEdicionInscripcion);
@@ -478,5 +491,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn uv;
+        private System.Windows.Forms.Button btnImprimirInscripcion;
     }
 }
